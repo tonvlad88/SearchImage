@@ -1,0 +1,2 @@
+export const SET_IMAGES = 'SET_IMAGES';
+export const SET_SELECTED_IMAGE = 'SET_SELECTED_IMAGE';
