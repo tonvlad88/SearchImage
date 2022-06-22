@@ -1,6 +1,6 @@
 # Search Image App
 
-This project allows you to search different images from the internet using the Pixabay API (https://pixabay.com/api/docs/).
+This project allows you to search different images from the internet using the [Pixabay API](https://pixabay.com/api/docs/).
 
 ## Prerequisites
 
