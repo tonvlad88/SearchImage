@@ -27,13 +27,9 @@ export default function ImageResultLists({loadMore}) {
 
   const renderImage = ({item}) => <ImageScreen item={item} />;
 
-  const onScrollHandler = () => {
-    console.log('scrollm eeee');
-  };
-
   return (
     <View style={componentStyles.resultContainer}>
-      <Text>LENGTH: {images.length}</Text>
+      {/* <Text>LENGTH: {images.length}</Text> */}
       {images.length > 0 ? (
         <FlatList
           data={images}
@@ -41,7 +37,7 @@ export default function ImageResultLists({loadMore}) {
           style={{flex: 1}}
           showsVerticalScrollIndicator={false}
           bounces={false}
-          keyExtractor={item => item.id.toString()}
+          keyExtractor={item => item.id.toString() + Math.random().toString()}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],
             {useNativeDriver: false},

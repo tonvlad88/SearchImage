@@ -1,17 +1,13 @@
 // Core Packages
 import React from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 
 export default function TextBold({value, style}) {
-  return (
-    <TextInput style={[componentStyles.textinputStyle, style]}>
-      {value}
-    </TextInput>
-  );
+  return <Text style={[componentStyles.textStyle, style]}>{value}</Text>;
 }
 
 const componentStyles = StyleSheet.create({
-  textinputStyle: {
+  textStyle: {
     fontFamily: 'Comfortaa-Bold',
   },
 });

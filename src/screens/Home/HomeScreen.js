@@ -7,8 +7,7 @@ import {
   Button,
   ActivityIndicator,
   TextInput,
-  FlatList,
-  Animated,
+  Keyboard,
 } from 'react-native';
 
 // Packages
@@ -17,14 +16,17 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {useSelector} from 'react-redux';
 
 // Imports
-import {getImages} from '../../redux/actions/imageActions';
+import {getImages, getImagesByKeyword} from '../../redux/actions/imageActions';
 import {Colors} from '../../utilities/constants';
 import {globalStyles} from '../../utilities/styles.js/global';
-import TextLight from '../../common/TextLight';
+import TextBold from '../../common/TextBold';
 import ImageResultLists from './components/ImageResultList';
+
+var timer = null;
 
 export default function HomeScreen({navigation}) {
   const [loading, setLoading] = useState(true);
+  const [keyword, setKeyword] = useState('');
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
@@ -36,6 +38,14 @@ export default function HomeScreen({navigation}) {
       }),
     );
   }, [dispatch, page]);
+
+  useEffect(() => {
+    dispatch(
+      getImagesByKeyword(keyword, page, images => {
+        setLoading(false);
+      }),
+    );
+  }, [dispatch, keyword]);
 
   if (loading) {
     return (
@@ -51,12 +61,34 @@ export default function HomeScreen({navigation}) {
     setPage(page + 1);
   };
 
+  const updateSearch = keyword => {
+    setLoading(true);
+    if (keyword == '') {
+      setKeyword(keyword);
+      setPage(1);
+    } else {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        Keyboard.dismiss();
+        setKeyword(keyword);
+      }, 1500);
+    }
+    setLoading(false);
+  };
+
   return (
     <View style={componentStyles.container}>
       <View style={componentStyles.textInputContainer}>
-        <TextInput style={componentStyles.textInput} />
+        <TextInput
+          placeholder="Enter keyword here..."
+          style={componentStyles.textInput}
+          onChangeText={updateSearch}
+        />
       </View>
-      <TextLight value="ALL RESULTS" style={{fontSize: 12, color: '#000'}} />
+      <View style={{marginVertical: 10}}>
+        <TextBold value="ALL RESULTS" style={{fontSize: 12, color: '#000'}} />
+      </View>
+
       <ImageResultLists loadMore={loadMoreHandler} />
     </View>
   );
