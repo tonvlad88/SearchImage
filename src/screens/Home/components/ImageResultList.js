@@ -52,7 +52,7 @@ export default function ImageResultLists({loadMore, navigation}) {
           }}
           numColumns={3}
           onEndReached={({distanceFromEnd}) => {
-            console.log('distanceFromEnd', distanceFromEnd);
+            // console.log('distanceFromEnd', distanceFromEnd);
             if (distanceFromEnd < 0) return;
             loadMore();
           }}
