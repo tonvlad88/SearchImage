@@ -50,25 +50,26 @@ Keep in mind that if you do this, you'll have to **install and link** all depend
 - Open the root directory into your terminal and type the following:
   `npx react-native link`
 - Just add these fonts in your info.plist (located at /ios/SearchImages/) under UIAppFonts key
-  ````<key>UIAppFonts</key>
-  <array>
-  <string>AntDesign.ttf</string>
-  <string>Entypo.ttf</string>
-  <string>EvilIcons.ttf</string>
-  <string>Feather.ttf</string>
-  <string>FontAwesome.ttf</string>
-  <string>FontAwesome5_Brands.ttf</string>
-  <string>FontAwesome5_Regular.ttf</string>
-  <string>FontAwesome5_Solid.ttf</string>
-  <string>Foundation.ttf</string>
-  <string>Ionicons.ttf</string>
-  <string>MaterialIcons.ttf</string>
-  <string>MaterialCommunityIcons.ttf</string>
-  <string>SimpleLineIcons.ttf</string>
-  <string>Octicons.ttf</string>
-  <string>Zocial.ttf</string>
-  </array>```
-  ````
+  ```
+  <key>UIAppFonts</key>
+    <array>
+        <string>AntDesign.ttf</string>
+        <string>Entypo.ttf</string>
+        <string>EvilIcons.ttf</string>
+        <string>Feather.ttf</string>
+        <string>FontAwesome.ttf</string>
+        <string>FontAwesome5_Brands.ttf</string>
+        <string>FontAwesome5_Regular.ttf</string>
+        <string>FontAwesome5_Solid.ttf</string>
+        <string>Foundation.ttf</string>
+        <string>Ionicons.ttf</string>
+        <string>MaterialIcons.ttf</string>
+        <string>MaterialCommunityIcons.ttf</string>
+        <string>SimpleLineIcons.ttf</string>
+        <string>Octicons.ttf</string>
+        <string>Zocial.ttf</string>
+    </array>
+  ```
 - Delete `build/` folder inside `ios` and rebuild the app using `npx react-native run-ios`
   BONUS(IOS): You can run to a specific simulator by running the command `npx react-native run-ios --simulator="iPhone 13 Pro Max"`
 
