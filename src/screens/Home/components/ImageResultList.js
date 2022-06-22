@@ -31,7 +31,7 @@ export default function ImageResultLists({loadMore, navigation}) {
 
   return (
     <View style={componentStyles.resultContainer}>
-      <Text>LENGTH: {images.length}</Text>
+      {/* <Text>LENGTH: {images.length}</Text> */}
       {images.length > 0 ? (
         <FlatList
           data={images}
