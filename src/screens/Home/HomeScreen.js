@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   TextInput,
   Keyboard,
+  Platform,
 } from 'react-native';
 
 // Packages
@@ -107,6 +108,8 @@ const componentStyles = StyleSheet.create({
   },
   textInput: {
     fontFamily: 'Comfortaa-Bold',
+    paddingHorizontal: Platform.OS == 'ios' ? 10 : 10,
+    paddingVertical: Platform.OS == 'ios' ? 20 : 10,
   },
   resultContainer: {
     flex: 1,
