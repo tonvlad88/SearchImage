@@ -71,6 +71,7 @@ Keep in mind that if you do this, you'll have to **install and link** all depend
     </array>
   ```
 - Delete `build/` folder inside `ios` and rebuild the app using `npx react-native run-ios`
+
   BONUS(IOS): You can run to a specific simulator by running the command `npx react-native run-ios --simulator="iPhone 13 Pro Max"`
 
 ## Folder structure
