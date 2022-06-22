@@ -5,13 +5,14 @@ import {View, Text, StyleSheet, ToastAndroid} from 'react-native';
 // Packages
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createSharedElementStackNavigator} from 'react-navigation-shared-element';
 
 // Imports
 import HomeScreen from '../src/screens/Home/HomeScreen';
 import ImageDetailScreen from '../src/screens/ImageDetail/ImageDetailScreen';
 import {Colors} from '../src/utilities/constants';
 
-const ImagesStackNavigator = createStackNavigator();
+const ImagesStackNavigator = createSharedElementStackNavigator();
 
 const defaultStyles = {
   headerStyle: {
