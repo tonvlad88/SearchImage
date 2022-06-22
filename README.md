@@ -2,6 +2,8 @@
 
 This project allows you to search different images from the internet using the [Pixabay API](https://pixabay.com/api/docs/).
 
+![grab-landing-page](https://github.com/tonvlad88/SearchImage/blob/main/assets/gifs/searchimagepreview.gif)
+
 ## Prerequisites
 
 - [Node.js > 12](https://nodejs.org) and npm (Recommended: Use [nvm](https://github.com/nvm-sh/nvm))
@@ -23,14 +25,6 @@ This project allows you to search different images from the internet using the [
 
 ## Usage
 
-#### Use Template button
-
-Click the "Use this template" button above the file list, then use the Owner drop-down menu, and select the account you want to own the repository. Creating a repository from a template has the following advantages:
-
-- A repository created from a template starts with a single commit.
-- Commits to a repository created from a template do appear in your contribution graph.
-- Creating a repository from a template starts a new project quickly.
-
 ### Option 1: Using React-Native-Rename
 
 You can start by cloning this repository and using [react-native-rename](https://github.com/junedomingo/react-native-rename). In the current state of this project, it should give you no issues at all, just run the script, delete your node modules and reinstall them and you should be good to go.
@@ -45,13 +39,40 @@ After that you should proceed as with any javascript project:
 
 (Using yarn: `yarn ios` or `yarn android`)
 
-Note: Please read the Setup environments section that is below in this file for more information about the execution scripts.
-
 ### Option 2: Copy the structure to your project
 
 If you want to roll on your own and don't want to use this as a template, you can create your project and then copy the `/src` folder (which has all the code of your application) and update your `index.js`.
 
 Keep in mind that if you do this, you'll have to **install and link** all dependencies (as well as adding all the necessary native code for each library that requires it).
+
+## Unrecognized font issues? Follow steps below
+
+- Open the root directory into your terminal and type the following:
+  `npx react-native link`
+- Just add these fonts in your info.plist (located at /ios/SearchImages/) under UIAppFonts key
+  ```
+  <key>UIAppFonts</key>
+    <array>
+        <string>AntDesign.ttf</string>
+        <string>Entypo.ttf</string>
+        <string>EvilIcons.ttf</string>
+        <string>Feather.ttf</string>
+        <string>FontAwesome.ttf</string>
+        <string>FontAwesome5_Brands.ttf</string>
+        <string>FontAwesome5_Regular.ttf</string>
+        <string>FontAwesome5_Solid.ttf</string>
+        <string>Foundation.ttf</string>
+        <string>Ionicons.ttf</string>
+        <string>MaterialIcons.ttf</string>
+        <string>MaterialCommunityIcons.ttf</string>
+        <string>SimpleLineIcons.ttf</string>
+        <string>Octicons.ttf</string>
+        <string>Zocial.ttf</string>
+    </array>
+  ```
+- Delete `build/` folder inside `ios` and rebuild the app using `npx react-native run-ios`
+
+  BONUS(IOS): You can run to a specific simulator by running the command `npx react-native run-ios --simulator="iPhone 13 Pro Max"`
 
 ## Folder structure
 
