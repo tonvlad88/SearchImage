@@ -1,14 +1,15 @@
 // Core Packages
 import React, {useState, useRef} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 
 // Packages
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {globalStyles} from '../../../utilities/styles.js/global';
+import {SharedElement} from 'react-navigation-shared-element';
 
 // Imports
 
-export default function ImageScreen({item}) {
+export default function ImageScreen({item, navigation}) {
   const renderBrokenImage = () => {
     return (
       <View style={componentStyles.borderImage}>
@@ -17,15 +18,24 @@ export default function ImageScreen({item}) {
     );
   };
 
+  const navigateToDetails = () => {
+    navigation.navigate('ImageDetailScreen', {item});
+  };
+
   if (item.userImageURL !== '') {
     return (
-      <View style={componentStyles.imageContainer}>
-        {/* <Text>{item.id}</Text> */}
-        <Image
-          style={componentStyles.tinyImage}
-          source={{uri: item.previewURL}}
-        />
-      </View>
+      <Pressable onPress={navigateToDetails}>
+        <SharedElement id={`item.${item.id}.previewURL`}>
+          <View style={componentStyles.imageContainer}>
+            {/* <Text>{item.id}</Text> */}
+            <Image
+              style={componentStyles.tinyImage}
+              source={{uri: item.largeImageURL}}
+              resizeMode="cover"
+            />
+          </View>
+        </SharedElement>
+      </Pressable>
     );
   }
 
