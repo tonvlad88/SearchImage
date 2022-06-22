@@ -4,7 +4,7 @@ export const appConfig = {
   imageTypePhoto: '&image_type=photo',
   imageTypeIllustration: '&image_type=illustration',
   imageTypeVector: '&image_type=vector',
-  perPage: 200,
+  perPage: 60,
 };
 
 export const Colors = {

@@ -71,7 +71,7 @@ export default function HomeScreen({navigation}) {
       timer = setTimeout(() => {
         Keyboard.dismiss();
         setKeyword(keyword);
-      }, 1500);
+      }, 500);
     }
     setLoading(false);
   };
@@ -89,7 +89,7 @@ export default function HomeScreen({navigation}) {
         <TextBold value="ALL RESULTS" style={{fontSize: 12, color: '#000'}} />
       </View>
 
-      <ImageResultLists loadMore={loadMoreHandler} />
+      <ImageResultLists loadMore={loadMoreHandler} navigation={navigation} />
     </View>
   );
 }

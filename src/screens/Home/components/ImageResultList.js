@@ -11,7 +11,7 @@ import {globalStyles} from '../../../utilities/styles.js/global';
 import TextBold from '../../../common/TextBold';
 import ImageScreen from './Image';
 
-export default function ImageResultLists({loadMore}) {
+export default function ImageResultLists({loadMore, navigation}) {
   const {images} = useSelector(state => state.images);
   const scrollX = useRef(new Animated.Value(0)).current;
   const viewConfig = useRef({viewAreaCoveragePercentThreshold: 50}).current;
@@ -25,11 +25,13 @@ export default function ImageResultLists({loadMore}) {
     );
   };
 
-  const renderImage = ({item}) => <ImageScreen item={item} />;
+  const renderImage = ({item}) => (
+    <ImageScreen item={item} navigation={navigation} />
+  );
 
   return (
     <View style={componentStyles.resultContainer}>
-      {/* <Text>LENGTH: {images.length}</Text> */}
+      <Text>LENGTH: {images.length}</Text>
       {images.length > 0 ? (
         <FlatList
           data={images}

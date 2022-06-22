@@ -1,6 +1,6 @@
 // Core Packages
 import React, {useState, useRef} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 // Packages
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -8,7 +8,7 @@ import {globalStyles} from '../../../utilities/styles.js/global';
 
 // Imports
 
-export default function ImageScreen({item}) {
+export default function ImageScreen({item, navigation}) {
   const renderBrokenImage = () => {
     return (
       <View style={componentStyles.borderImage}>
@@ -17,15 +17,21 @@ export default function ImageScreen({item}) {
     );
   };
 
+  const navigateToDetails = () => {
+    navigation.navigate('ImageDetailScreen');
+  };
+
   if (item.userImageURL !== '') {
     return (
-      <View style={componentStyles.imageContainer}>
-        {/* <Text>{item.id}</Text> */}
-        <Image
-          style={componentStyles.tinyImage}
-          source={{uri: item.previewURL}}
-        />
-      </View>
+      <TouchableOpacity onPress={navigateToDetails}>
+        <View style={componentStyles.imageContainer}>
+          {/* <Text>{item.id}</Text> */}
+          <Image
+            style={componentStyles.tinyImage}
+            source={{uri: item.previewURL}}
+          />
+        </View>
+      </TouchableOpacity>
     );
   }
 
