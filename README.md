@@ -81,16 +81,6 @@ Another important thing is the use of propTypes to check the kind of data that y
 
 To keep an application scalable and organized, the global static resources that are used in the application have to be created in a specific file.
 
-### We manage three main folders for that:
-
-- Assets: Here you can store all the images and icons that you need through the app. You have as an example the icon ic_home.png, to respond with the different device screen densities just create inside the same folder the image and all the scaled versions that you need. RN only handles x1, x2 and x3 in this case, you have.
-
-  - assets
-    - ic_home
-      - ic_home.png
-      - ic_home@2x.png
-      - ic_home@3x.png
-
 ## Redux
 
 Once the components are defined, they are tied to the management of information through the application. For this, Redux is implemented with the store-reducer-action structure as usual, however, not only the data is handled through the actions but the success and error responses are also defined by the same form.
