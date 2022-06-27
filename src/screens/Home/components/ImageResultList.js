@@ -41,7 +41,10 @@ export default function ImageResultLists({loadMore, navigation}) {
           showsVerticalScrollIndicator={false}
           bounces={false}
           initialNumToRender={appConfig.perPage}
-          keyExtractor={item => item.id.toString() + Math.random().toString()}
+          keyExtractor={item => {
+            // console.log('item', parseInt(item.id) + parseInt(Math.random()).toString());
+            return parseInt(item.id) + parseInt(Math.random()).toString()
+          }}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],
             {useNativeDriver: false},
