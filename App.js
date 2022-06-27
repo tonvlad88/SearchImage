@@ -7,7 +7,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 // Imports
-import MainApp from './src/App';
 import AppNavigator from './navigations/AppNavigator';
 
 export default function App() {

@@ -13,8 +13,6 @@ import {
 
 // Packages
 import {useDispatch} from 'react-redux';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import {useSelector} from 'react-redux';
 
 // Imports
 import {getImages, getImagesByKeyword} from '../../redux/actions/imageActions';
@@ -33,20 +31,18 @@ export default function HomeScreen({navigation}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(
-      getImages(page, images => {
-        setLoading(false);
-      }),
-    );
-  }, [dispatch, page]);
-
-  useEffect(() => {
-    dispatch(
-      getImagesByKeyword(keyword, page, images => {
-        setLoading(false);
-      }),
-    );
-  }, [dispatch, keyword]);
+    if (keyword == '') {
+      setPage(1);
+    }
+    const delayDebounceFn = setTimeout(() => {
+      dispatch(
+        getImagesByKeyword(keyword, page, images => {
+          setLoading(false);
+        }),
+      );
+    }, 500);
+    return () => clearTimeout(delayDebounceFn);
+  }, [keyword, page]);
 
   if (loading) {
     return (
@@ -62,28 +58,13 @@ export default function HomeScreen({navigation}) {
     setPage(page + 1);
   };
 
-  const updateSearch = keyword => {
-    setLoading(true);
-    if (keyword == '') {
-      setKeyword(keyword);
-      setPage(1);
-    } else {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        Keyboard.dismiss();
-        setKeyword(keyword);
-      }, 500);
-    }
-    setLoading(false);
-  };
-
   return (
     <View style={componentStyles.container}>
       <View style={componentStyles.textInputContainer}>
         <TextInput
           placeholder="Enter keyword here..."
           style={componentStyles.textInput}
-          onChangeText={updateSearch}
+          onChangeText={setKeyword}
         />
       </View>
       <View style={{marginVertical: 10}}>
@@ -107,7 +88,7 @@ const componentStyles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   textInput: {
-    fontFamily: 'Comfortaa-Bold',
+    // fontFamily: 'Comfortaa-Bold',
     paddingHorizontal: Platform.OS == 'ios' ? 10 : 10,
     paddingVertical: Platform.OS == 'ios' ? 20 : 10,
   },

@@ -8,6 +8,6 @@ export default function TextBold({value, style}) {
 
 const componentStyles = StyleSheet.create({
   textStyle: {
-    fontFamily: 'Comfortaa-Bold',
+    // fontFamily: 'Comfortaa-Bold',
   },
 });

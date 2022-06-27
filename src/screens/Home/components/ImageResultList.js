@@ -10,6 +10,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {globalStyles} from '../../../utilities/styles.js/global';
 import TextBold from '../../../common/TextBold';
 import ImageScreen from './Image';
+import {appConfig} from '../../../utilities/constants';
 
 export default function ImageResultLists({loadMore, navigation}) {
   const {images} = useSelector(state => state.images);
@@ -39,6 +40,7 @@ export default function ImageResultLists({loadMore, navigation}) {
           style={{flex: 1}}
           showsVerticalScrollIndicator={false}
           bounces={false}
+          initialNumToRender={appConfig.perPage}
           keyExtractor={item => item.id.toString() + Math.random().toString()}
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],

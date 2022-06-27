@@ -8,6 +8,6 @@ export default function TextLight({value, style}) {
 
 const componentStyles = StyleSheet.create({
   textStyle: {
-    fontFamily: 'Comfortaa-Light',
+    // fontFamily: 'Comfortaa-Light',
   },
 });

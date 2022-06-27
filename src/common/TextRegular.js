@@ -8,6 +8,6 @@ export default function TextRegular({value, style}) {
 
 const componentStyles = StyleSheet.create({
   textStyle: {
-    fontFamily: 'Comfortaa-Regular',
+    // fontFamily: 'Comfortaa-Regular',
   },
 });

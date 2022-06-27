@@ -20,7 +20,7 @@ const defaultStyles = {
   },
   headerTintColor: '#fff',
   headerTitleStyle: {
-    fontFamily: 'Comfortaa-Bold',
+    // fontFamily: 'Comfortaa-Bold',
   },
 };
 

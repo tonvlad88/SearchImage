@@ -1,5 +1,5 @@
 // Core Packages
-import React, {useState, useRef} from 'react';
+import React, {memo} from 'react';
 import {View, Text, StyleSheet, Image, Pressable} from 'react-native';
 
 // Packages
@@ -9,7 +9,7 @@ import {SharedElement} from 'react-navigation-shared-element';
 
 // Imports
 
-export default function ImageScreen({item, navigation}) {
+const ImageScreen = ({item, navigation}) => {
   const renderBrokenImage = () => {
     return (
       <View style={componentStyles.borderImage}>
@@ -40,7 +40,7 @@ export default function ImageScreen({item, navigation}) {
   }
 
   return renderBrokenImage();
-}
+};
 
 const componentStyles = StyleSheet.create({
   imageContainer: {
@@ -60,3 +60,5 @@ const componentStyles = StyleSheet.create({
     borderColor: '#c9c9c9',
   },
 });
+
+export default memo(ImageScreen);
