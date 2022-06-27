@@ -45,32 +45,17 @@ If you want to roll on your own and don't want to use this as a template, you ca
 
 Keep in mind that if you do this, you'll have to **install and link** all dependencies (as well as adding all the necessary native code for each library that requires it).
 
-## Unrecognized font issues? Follow steps below
+## If you encountered error (IOS), follow steps below:
 
-- Open the root directory into your terminal and type the following:
-  `npx react-native link`
-- Just add these fonts in your info.plist (located at /ios/SearchImages/) under UIAppFonts key
-  ```
-  <key>UIAppFonts</key>
-    <array>
-        <string>AntDesign.ttf</string>
-        <string>Entypo.ttf</string>
-        <string>EvilIcons.ttf</string>
-        <string>Feather.ttf</string>
-        <string>FontAwesome.ttf</string>
-        <string>FontAwesome5_Brands.ttf</string>
-        <string>FontAwesome5_Regular.ttf</string>
-        <string>FontAwesome5_Solid.ttf</string>
-        <string>Foundation.ttf</string>
-        <string>Ionicons.ttf</string>
-        <string>MaterialIcons.ttf</string>
-        <string>MaterialCommunityIcons.ttf</string>
-        <string>SimpleLineIcons.ttf</string>
-        <string>Octicons.ttf</string>
-        <string>Zocial.ttf</string>
-    </array>
-  ```
-- Delete `build/` folder inside `ios` and rebuild the app using `npx react-native run-ios`
+- Delete node_modules in the root directory
+- Run the command `npm install` or `yarn install`
+- Change directory to ios by running `cd \ios`
+- Delete Podfile.lock
+- Run the commands below:
+  `pod deintegrate`
+  `pod install`
+- Go back to the root directory, command is `cd ..`
+- rebuild the app using `npm install` & `npx react-native run-ios`
 
   BONUS(IOS): You can run to a specific simulator by running the command `npx react-native run-ios --simulator="iPhone 13 Pro Max"`
 
